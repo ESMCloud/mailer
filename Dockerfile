@@ -2,11 +2,11 @@ FROM busybox
 COPY . /mailer
 WORKDIR /mailer
 
-RUN adduser -DHs /bin/bash example_test_adduser
+RUN adduser -DHs /bin/bash test_adduser
 
-RUN chown example mailer.sh
+RUN chown test_adduser mailer.sh
 RUN chmod a+x mailer.sh
 EXPOSE 33333
 
-USER example
+USER test_adduser
 CMD ["/mailer/mailer.sh"]
